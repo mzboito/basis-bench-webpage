@@ -209,13 +209,13 @@ code {
 }
 .mode-chip b { color: var(--ink-1); font-weight: 600; }
 /* evaluation-mode colors, same as the paper (\SI \SE \TI \TE highlights at 20%) */
-.mode-chip.si { --mode: #56B4E9; }
-.mode-chip.se { --mode: #E69F00; }
-.mode-chip.ti { --mode: #009E73; }
-.mode-chip.te { --mode: #CC79A7; }
-.mode-chip[class*=" "] {
-  background: color-mix(in srgb, var(--mode) 20%, var(--surface-1));
-  border-color: color-mix(in srgb, var(--mode) 55%, var(--surface-1));
+.mode-chip.si { --mode: #56B4E9; --mode-bg: #56B4E933; }
+.mode-chip.se { --mode: #E69F00; --mode-bg: #E69F0033; }
+.mode-chip.ti { --mode: #009E73; --mode-bg: #009E7333; }
+.mode-chip.te { --mode: #CC79A7; --mode-bg: #CC79A733; }
+.mode-chip.si, .mode-chip.se, .mode-chip.ti, .mode-chip.te {
+  background: var(--mode-bg);
+  border-color: var(--mode);
   border-left: 4px solid var(--mode);
   color: var(--ink-1);
 }

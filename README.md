@@ -60,3 +60,8 @@ nearly indistinguishable on screen (e.g. `#F2A541` vs `#D4B106`), including unde
 color-vision deficiency. Each model is instead mapped to the closest hue of a validated
 8-color categorical palette (with separate steps for dark mode), and every value is also
 reachable via tooltips and the “View as table” toggle.
+
+## Cache busting
+
+`index.html` loads the CSS/JS as `…?v=2`. Bump that number whenever you change a file in
+`static/`, so visitors' browsers fetch the new version instead of a cached one.
