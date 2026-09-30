@@ -386,7 +386,7 @@
   function buildElipCard(item, container) {
     var voices = [
       { key: "adult", label: "🧑 Adult voice" },
-      { key: "child", label: "🧒 Child voice" }
+      { key: "child", label: "👧 Child voice" }
     ];
     var rowA, rowC;
     function apply(key) {
