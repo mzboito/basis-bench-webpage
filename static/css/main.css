@@ -181,6 +181,12 @@ code {
 .tldr strong.lead { color: var(--accent-ink); }
 
 /* ------------------------------------------------------------ axis grid --- */
+.overview-fig { margin: 22px 0; text-align: center; }
+.overview-fig img {
+  max-width: 100%; height: auto; display: inline-block;
+  background: #fff; border-radius: 12px; padding: 10px;
+  border: 1px solid var(--grid); box-shadow: var(--shadow);
+}
 .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 22px 0; }
 .axis-card {
   background: var(--surface-1); border: 1px solid var(--grid); border-radius: 12px;

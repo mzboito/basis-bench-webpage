@@ -73,33 +73,10 @@
       <strong>only when explicitly requested</strong>, and evaluate along three axes:
     </p>
 
-    <div class="cards3">
-      <div class="axis-card">
-        <span class="num">1</span>
-        <h3>Demographic Robustness</h3>
-        <p class="q">Can the model reliably process speech and perceive demographic cues?</p>
-        <p>A minimum requirement for a good speech LLM, split into two sub-axes: <b>content-based tasks</b> —
-           do speech LLMs perform equitably on tasks that do not require paralinguistics? — and
-           <b>demographic classification</b> — are they aware of the demographic from the speaker’s acoustics?
-           Data: SD-QA, Fair-Speech, LibriSQA, Spoken StereoSet+.</p>
-      </div>
-      <div class="axis-card">
-        <span class="num">2</span>
-        <h3>Stereotypical Bias</h3>
-        <p class="q">Do demographic cues shape behavior when irrelevant?</p>
-        <p>In a context–continuation setup, a biased speech LLM prefers continuations that attribute a
-           stereotype to the speaker based on perceived age or gender. Data: Spoken StereoSet+, our manually
-           re-annotated release. Metric: ICAT.</p>
-      </div>
-      <div class="axis-card">
-        <span class="num">3</span>
-        <h3>Personalization</h3>
-        <p class="q">Can the model use demographic cues when explicitly requested?</p>
-        <p>How to differentiate this from stereotypical bias? <b>Modulation is appropriate only when explicitly
-           requested.</b> Age: open-ended generation for child/adult profiles (ELIP-Pair, LLM-as-a-judge).
-           Gender: constrained gender recognition MCQA (BASIS-Health, BASIS-Product).</p>
-      </div>
-    </div>
+    <figure class="overview-fig">
+      <img src="static/img/basis_bench_overview.png" width="738" height="367"
+           alt="BASIS-Bench overview. 1 — Demographic Robustness: can the model reliably process speech and perceive demographic cues? Accent/age/gender ASR and SQA on Fair-Speech, LibriSQA, SD-QA; age/gender classification on the datasets of axes 2 and 3. 2 — Stereotypical Bias: can the model ignore demographic cues when they are irrelevant for the task? Age/gender MCQA association test on Spoken StereoSet+. 3 — Personalization: can the model use demographic cues when explicitly requested? Age: open-ended SQA on ELIP-Pair; gender: MCQA SQA on BASIS-Health/Product.">
+    </figure>
 
     <h3>Four evaluation modes</h3>
     <p class="muted">
