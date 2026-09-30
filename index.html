@@ -227,39 +227,6 @@
     <h2>Takeaway messages</h2>
     <div class="finding-cards">
       <div class="finding wide">
-        <h3>Demographic Robustness</h3>
-        <ul>
-          <li><b>Acoustic effect:</b> all models perform well across nearly all demographics on content-based
-              tasks. Gender classification remains more reliable than age — classifying elderly speakers is the
-              toughest.</li>
-        </ul>
-      </div>
-      <div class="finding">
-        <h3>Stereotypical Bias</h3>
-        <ul>
-          <li><b>Backbone effect:</b> the prior is slightly stereotypical towards female and young speakers, and
-              explicit demographic information increases stereotypical behavior.</li>
-          <li><b>Interaction effect:</b> implicit results are consistent across speech and text — most of the
-              bias is inherited. In the explicit case, speech integration dampens the backbone’s bias.</li>
-          <li><b>Perception:</b> perfect perception increases stereotypical behavior, and the increase is more
-              pronounced for age.</li>
-        </ul>
-      </div>
-      <div class="finding">
-        <h3>Personalization</h3>
-        <ul>
-          <li><b>Backbone effect:</b> female options are always selected more than male (strongest in
-              BASIS-Health), while age preferences remain near random. With explicit information, gender and
-              child personalization reach near-ceiling scores; adult remains tough.</li>
-          <li><b>Interaction effect:</b> the speech-implicit trend closely follows text-implicit, showing
-              inheritance. For age, there is a systematic shift towards child-friendly responses — no model
-              adapts to both age groups.</li>
-          <li><b>Perception:</b> perfect perception improves gender and child personalization; adult remains
-              mixed.</li>
-        </ul>
-      </div>
-      <div class="finding wide">
-        <h3>Putting it all together</h3>
         <ul>
           <li>Models do <b>not reliably distinguish when</b> demographic information should shape their
               behavior.</li>
