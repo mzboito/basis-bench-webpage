@@ -53,21 +53,13 @@
   </div>
 
   <div class="tldr">
-    <strong class="lead">Abstract —</strong> Recent speech LLMs can leverage rich paralinguistic cues, enabling
-    more complex and personalized interactions. However, little work investigates how this sensitivity can lead
-    to stereotyping, and existing evaluations largely measure demographic disparities without distinguishing
-    beneficial personalization from stereotypical behavior. We introduce <strong>BASIS-Bench</strong>, a
-    benchmark designed to disentangle these two aspects through three axes: (1)&nbsp;<em>demographic
-    robustness</em>, measuring disparities in content-based tasks across speakers and demographic
-    classification capabilities; (2)&nbsp;<em>stereotypical bias</em>, measuring whether perceived demographic
-    cues trigger unprompted stereotypical behavior; and (3)&nbsp;<em>personalization</em>, measuring whether
-    models can tailor responses to demographic characteristics when explicitly requested. We evaluate eight
-    recent speech LLMs and find that, despite often recognizing demographic cues, most fail to translate them
-    into appropriate personalization. Explicit demographic labels improve personalization but also amplify
-    stereotypical associations already present in the textual backbones. These findings highlight the need to
-    train speech LLMs not only to perceive demographic cues, but to learn when they should shape their
-    responses. Together, our results show that current speech LLMs often <strong>fail to listen</strong> when
-    demographics matter, yet <strong>fail to turn a deaf ear</strong> when they do not.
+    <strong class="lead">TL;DR —</strong> Along with the linguistic content, speech LLMs have access to the
+    <em>acoustics</em>: demographic cues such as age and gender that text alone does not carry. This access is a
+    duality — an <strong>opportunity to personalize</strong>, and a <strong>risk to be biased</strong>.
+    <strong>BASIS-Bench</strong> disentangles this tension for eight recent speech LLMs, and decomposes where
+    demographic-dependent behavior comes from: the acoustics, the backbone, or their interaction. Together, our results show that current speech LLMs often
+    <strong>fail to listen</strong> when demographics matter, yet <strong>fail to turn a deaf ear</strong> when
+    they do not.
   </div>
 </header>
 
@@ -77,10 +69,20 @@
     <h2>BASIS-Bench</h2>
     <p class="muted"><b>B</b>ias <b>A</b>nd per<b>S</b>onalization <b>I</b>n <b>S</b>peech LLMs <b>Bench</b>mark</p>
     <p>
-      Speech carries demographic cues (age, gender) that text does not. A good speech assistant should use
-      them when the user asks for a tailored answer, and ignore them otherwise. <strong>BASIS-Bench</strong>
-      separates these two behaviors, treating demographic personalization as desirable
-      <em>only when explicitly requested</em>, along three axes:
+      Recent speech LLMs can leverage rich paralinguistic cues, enabling
+      more complex and personalized interactions. However, little work investigates how this sensitivity can lead
+      to stereotyping, and existing evaluations largely measure demographic disparities without distinguishing
+      beneficial personalization from stereotypical behavior. We introduce <strong>BASIS-Bench</strong>, a
+      benchmark designed to disentangle these two aspects through three axes: (1)&nbsp;<em>demographic
+      robustness</em>, measuring disparities in content-based tasks across speakers and demographic
+      classification capabilities; (2)&nbsp;<em>stereotypical bias</em>, measuring whether perceived demographic
+      cues trigger unprompted stereotypical behavior; and (3)&nbsp;<em>personalization</em>, measuring whether
+      models can tailor responses to demographic characteristics when explicitly requested. We evaluate eight
+      recent speech LLMs and find that, despite often recognizing demographic cues, most fail to translate them
+      into appropriate personalization. Explicit demographic labels improve personalization but also amplify
+      stereotypical associations already present in the textual backbones. These findings highlight the need to
+      train speech LLMs not only to perceive demographic cues, but to learn when they should shape their
+      responses.
     </p>
 
     <figure class="overview-fig">
