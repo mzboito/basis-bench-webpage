@@ -26,7 +26,7 @@ Everything is relative-path based, so it works from any subpath.
 
 Search `index.html` for `TODO`:
 
-- **Hero buttons**: Paper / arXiv / Code / Data are greyed-out `<span class="btn tbd">` placeholders — turn each back into `<a class="btn" href="…">` and drop the `TBD` tag when its link exists.
+- **Hero buttons**: Paper / Code / Data are greyed-out `<span class="btn tbd">` placeholders — turn each back into `<a class="btn" href="…">` and drop the `TBD` tag when its link exists.
 - **Venue badge**: currently “arXiv preprint · TBD”.
 - **BibTeX**: replace the `TBD` eprint/url once the paper is online.
 
