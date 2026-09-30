@@ -109,6 +109,19 @@ h2 { font-size: 1.7rem; margin: 0 0 .35em; }
 h3 { font-size: 1.15rem; margin: 1.6em 0 .5em; }
 p { margin: .65em 0; }
 section { padding: 56px 0 8px; }
+/* divider between the page's major blocks */
+.section-sep {
+  max-width: 880px; margin: 64px auto 0; padding: 0 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.section-sep::before, .section-sep::after {
+  content: ""; flex: 1; height: 1px;
+  background: linear-gradient(to right, transparent, var(--grid) 30%, var(--grid) 70%, transparent);
+}
+.section-sep span {
+  width: 9px; height: 9px; flex: none; transform: rotate(45deg);
+  background: var(--accent); border-radius: 2px; opacity: .85;
+}
 .muted { color: var(--ink-2); }
 .small { font-size: .87rem; }
 code {
