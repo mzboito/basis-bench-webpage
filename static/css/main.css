@@ -380,6 +380,7 @@ svg.has-dim .connector.hl { stroke-opacity: .6; }
   color: var(--ink-2); background: var(--wash); border: 1px solid var(--grid);
   border-radius: 6px; padding: 2px 8px; white-space: nowrap;
 }
+.fx-tag + .fx-tag { margin-left: 6px; }
 
 /* observation bullets inside chart cards */
 .chart-notes { margin: 10px 0 6px; padding-left: 18px; font-size: .83rem; color: var(--ink-2); }
