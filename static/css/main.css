@@ -208,6 +208,17 @@ code {
   border: 1px solid var(--grid); background: var(--surface-1); color: var(--ink-2);
 }
 .mode-chip b { color: var(--ink-1); font-weight: 600; }
+/* evaluation-mode colors, same as the paper (\SI \SE \TI \TE highlights at 20%) */
+.mode-chip.si { --mode: #56B4E9; }
+.mode-chip.se { --mode: #E69F00; }
+.mode-chip.ti { --mode: #009E73; }
+.mode-chip.te { --mode: #CC79A7; }
+.mode-chip[class*=" "] {
+  background: color-mix(in srgb, var(--mode) 20%, var(--surface-1));
+  border-color: color-mix(in srgb, var(--mode) 55%, var(--surface-1));
+  border-left: 4px solid var(--mode);
+  color: var(--ink-1);
+}
 
 /* ------------------------------------------------------------- controls --- */
 .control-row {
