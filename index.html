@@ -66,11 +66,10 @@
     <h2>BASIS-Bench</h2>
     <p class="muted"><b>B</b>ias <b>A</b>nd per<b>S</b>onalization <b>I</b>n <b>S</b>peech LLMs <b>Bench</b>mark</p>
     <p>
-      Current evaluations work with bias and personalization <strong>independently</strong>, without considering
-      them together — the same demographic-dependent behavior may be rewarded as personalization or penalized as
-      stereotyping — and the effect of the backbone of speech LLMs is largely understudied. Following
-      previous studies, we consider demographic personalization appropriate
-      <strong>only when explicitly requested</strong>, and evaluate along three axes:
+      Speech carries demographic cues (age, gender) that text does not. A good speech assistant should use
+      them when the user asks for a tailored answer, and ignore them otherwise. <strong>BASIS-Bench</strong>
+      separates these two behaviors, treating demographic personalization as desirable
+      <em>only when explicitly requested</em>, along three axes:
     </p>
 
     <figure class="overview-fig">
