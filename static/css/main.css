@@ -438,6 +438,9 @@ svg.has-dim .connector.hl { stroke-opacity: .6; }
 .tabpanel { padding: 18px 0 4px; }
 .tabpanel[hidden] { display: none; }
 .tabpanel > .desc { font-size: .92rem; color: var(--ink-2); margin: 0 0 16px; max-width: 760px; }
+.desc-box { margin: 0 0 16px; box-shadow: none; }
+.desc-box summary { padding: 9px 16px; font-size: .92rem; }
+.desc-box .desc { font-size: .92rem; color: var(--ink-2); margin: 0; padding: 0 16px 14px; }
 
 .ex-card {
   background: var(--surface-1); border: 1px solid var(--grid); border-radius: 12px;

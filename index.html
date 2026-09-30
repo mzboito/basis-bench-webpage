@@ -9,7 +9,7 @@
   <meta property="og:title" content="BASIS-Bench — Personalization Without Stereotyping">
   <meta property="og:description" content="Do speech LLMs know when to turn a deaf ear? Disentangling stereotypical bias from personalization.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%AC%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="static/css/main.css?v=7">
+  <link rel="stylesheet" href="static/css/main.css?v=8">
 </head>
 <body>
 
@@ -69,7 +69,7 @@
     <h2>BASIS-Bench</h2>
     <p class="muted"><b>B</b>ias <b>A</b>nd per<b>S</b>onalization <b>I</b>n <b>S</b>peech LLMs <b>Bench</b>mark</p>
     <figure class="overview-fig">
-      <img src="static/img/basis_bench_overview.svg?v=7" width="736" height="369"
+      <img src="static/img/basis_bench_overview.svg?v=8" width="736" height="369"
            alt="BASIS-Bench overview. 1 — Demographic Robustness: can the model reliably process speech and perceive demographic cues? Accent/age/gender ASR and SQA on Fair-Speech, LibriSQA, SD-QA; age/gender classification on the datasets of axes 2 and 3. 2 — Stereotypical Bias: can the model ignore demographic cues when they are irrelevant for the task? Age/gender MCQA association test on Spoken StereoSet+. 3 — Personalization: can the model use demographic cues when explicitly requested? Age: open-ended SQA on ELIP-Pair; gender: MCQA SQA on BASIS-Health/Product.">
     </figure>
 
@@ -290,15 +290,18 @@
     </div>
 
     <div class="tabpanel" id="panel-sss" role="tabpanel" aria-labelledby="tab-sss">
-      <p class="desc">
-        <b>Stereotypical bias.</b> We manually re-annotated Spoken StereoSet against an explicit definition of
-        stereotypical bias, filtering the pitfalls catalogued in the <em>Inventory of Pitfalls in Fairness
-        Benchmark Datasets</em> — stereotype conflation, invalid continuations, invalid perturbations — plus
-        demographic-specific criteria (demographic leakage and invalid gender for age; inappropriate content and
-        social perception for gender). The model hears a first-person context and picks the most plausible
-        continuation; ICAT measures the skew between stereotypical and anti-stereotypical selections
-        (100&nbsp;=&nbsp;a perfectly balanced 50/50 split).
-      </p>
+      <details class="abstract-box desc-box">
+        <summary>Description</summary>
+        <p class="desc">
+          <b>Stereotypical bias.</b> We manually re-annotated Spoken StereoSet against an explicit definition of
+          stereotypical bias, filtering the pitfalls catalogued in the <em>Inventory of Pitfalls in Fairness
+          Benchmark Datasets</em> — stereotype conflation, invalid continuations, invalid perturbations — plus
+          demographic-specific criteria (demographic leakage and invalid gender for age; inappropriate content and
+          social perception for gender). The model hears a first-person context and picks the most plausible
+          continuation; ICAT measures the skew between stereotypical and anti-stereotypical selections
+          (100&nbsp;=&nbsp;a perfectly balanced 50/50 split).
+        </p>
+      </details>
       <h3>Gender split — female vs. male speakers</h3>
       <div id="ex-sss-gender"></div>
       <h3>Age split — male adult vs. male elderly speakers</h3>
@@ -306,32 +309,41 @@
     </div>
 
     <div class="tabpanel" id="panel-health" role="tabpanel" aria-labelledby="tab-health" hidden>
-      <p class="desc">
-        <b>Gender personalization</b>, framed as <b>constrained gender recognition</b> to avoid stereotypical
-        associations: the question is gender-neutral, the options carry explicit gender markers, and the model —
-        explicitly instructed to personalize — must pick the option matching the voice. Health questions are
-        grounded in biological differences between male and female. A controlled diagnostic task, not a clinical
-        benchmark (see the paper’s ethics statement).
-      </p>
+      <details class="abstract-box desc-box">
+        <summary>Description</summary>
+        <p class="desc">
+          <b>Gender personalization</b>, framed as <b>constrained gender recognition</b> to avoid stereotypical
+          associations: the question is gender-neutral, the options carry explicit gender markers, and the model —
+          explicitly instructed to personalize — must pick the option matching the voice. Health questions are
+          grounded in biological differences between male and female. A controlled diagnostic task, not a clinical
+          benchmark (see the paper’s ethics statement).
+        </p>
+      </details>
       <div id="ex-health"></div>
     </div>
 
     <div class="tabpanel" id="panel-product" role="tabpanel" aria-labelledby="tab-product" hidden>
-      <p class="desc">
-        <b>Gender personalization</b> on product recommendations: two otherwise identical options that differ
-        only by an explicit gender marker (<em>Men’s</em> vs. <em>Women’s</em>). Brands are entirely fictional
-        to prevent reliance on memorized brand associations.
-      </p>
+      <details class="abstract-box desc-box">
+        <summary>Description</summary>
+        <p class="desc">
+          <b>Gender personalization</b> on product recommendations: two otherwise identical options that differ
+          only by an explicit gender marker (<em>Men’s</em> vs. <em>Women’s</em>). Brands are entirely fictional
+          to prevent reliance on memorized brand associations.
+        </p>
+      </details>
       <div id="ex-product"></div>
     </div>
 
     <div class="tabpanel" id="panel-elip" role="tabpanel" aria-labelledby="tab-elip" hidden>
-      <p class="desc">
-        <b>Age personalization</b> as open-ended generation, built on ELIP (Thonet et&nbsp;al., 2025): each
-        question pairs a child reference answer — friendly, witty, funny and humorous tone, assuming a
-        non-expert audience — with an adult one — formal style, assuming an expert audience. The model answers
-        the spoken question and an LLM-as-a-judge classifies the response into the profile it is fit for.
-      </p>
+      <details class="abstract-box desc-box">
+        <summary>Description</summary>
+        <p class="desc">
+          <b>Age personalization</b> as open-ended generation, built on ELIP (Thonet et&nbsp;al., 2025): each
+          question pairs a child reference answer — friendly, witty, funny and humorous tone, assuming a
+          non-expert audience — with an adult one — formal style, assuming an expert audience. The model answers
+          the spoken question and an LLM-as-a-judge classifies the response into the profile it is fit for.
+        </p>
+      </details>
       <div id="ex-elip"></div>
     </div>
 
@@ -388,8 +400,8 @@
   </div>
 </noscript>
 
-<script src="static/js/data.js?v=7"></script>
-<script src="static/js/plots.js?v=7"></script>
-<script src="static/js/main.js?v=7"></script>
+<script src="static/js/data.js?v=8"></script>
+<script src="static/js/plots.js?v=8"></script>
+<script src="static/js/main.js?v=8"></script>
 </body>
 </html>

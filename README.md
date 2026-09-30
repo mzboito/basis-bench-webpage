@@ -63,5 +63,5 @@ reachable via tooltips and the “View as table” toggle.
 
 ## Cache busting
 
-`index.html` loads the CSS/JS as `…?v=7`. Bump that number whenever you change a file in
+`index.html` loads the CSS/JS as `…?v=8`. Bump that number whenever you change a file in
 `static/`, so visitors' browsers fetch the new version instead of a cached one.
