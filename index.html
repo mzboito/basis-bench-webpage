@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BASIS-Bench — Personalization Without Stereotyping</title>
+  <meta name="description" content="BASIS-Bench: a benchmark for disentangling the tension between stereotypical bias and personalization in speech LLMs, with interactive results for eight models.">
+  <!-- TODO: set the canonical URL once the page is live, e.g.
+       <meta property="og:url" content="https://USER.github.io/REPO/"> -->
+  <meta property="og:title" content="BASIS-Bench — Personalization Without Stereotyping">
+  <meta property="og:description" content="Do speech LLMs know when to turn a deaf ear? Disentangling stereotypical bias from personalization.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%82%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">BASIS-Bench</span>
+    <nav class="topnav" aria-label="sections">
+      <a href="#overview">Overview</a>
+      <a href="#results">Interactive results</a>
+      <a href="#findings">Takeaways</a>
+      <a href="#data">Data &amp; examples</a>
+      <a href="#citation">Citation</a>
+    </nav>
+    <button id="theme-btn" class="theme-btn" type="button" aria-label="toggle color theme">Dark</button>
+  </div>
+</div>
+
+<!-- ================================================================ HERO -->
+<header class="hero wrap-narrow">
+  <!-- TODO: update the badge once the arXiv link / venue is known -->
+  <span class="venue-badge">arXiv preprint · TBD</span>
+  <h1>Personalization Without Stereotyping</h1>
+  <p class="subtitle">Do Speech LLMs Know When to Turn a Deaf Ear?</p>
+  <p class="authors">Kshitij Ambilduke, Caroline Brun, Thibaut Thonet, Vassilina Nikoulina, Marcely Zanon Boito</p>
+  <p class="affil">NAVER LABS Europe</p>
+  <div class="btn-row">
+    <!-- TODO: when a link is ready, turn its <span class="btn ... tbd"> back into <a class="btn ..." href="URL"> and drop the TBD tag -->
+    <span class="btn tbd" aria-disabled="true" title="Available soon">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 0h6l4 4v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1zm5 1v4h4"/></svg>
+      Paper <small>TBD</small>
+    </span>
+    <span class="btn secondary tbd" aria-disabled="true" title="Available soon">arXiv <small>TBD</small></span>
+    <span class="btn secondary tbd" aria-disabled="true" title="Available soon">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      Code <small>TBD</small>
+    </span>
+    <span class="btn secondary tbd" aria-disabled="true" title="Available soon">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1C4.7 1 2 1.9 2 3v10c0 1.1 2.7 2 6 2s6-.9 6-2V3c0-1.1-2.7-2-6-2zm0 2c2.8 0 4-.7 4-1s-1.2-1-4-1-4 .7-4 1 1.2 1 4 1zm4 3.5c0 .3-1.2 1-4 1s-4-.7-4-1V4.6c1 .5 2.5.7 4 .7s3-.2 4-.7v2.9zm0 4c0 .3-1.2 1-4 1s-4-.7-4-1V8.6c1 .5 2.5.7 4 .7s3-.2 4-.7v2.9z"/></svg>
+      Data <small>TBD</small>
+    </span>
+  </div>
+
+  <div class="tldr">
+    <strong class="lead">TL;DR —</strong> Along with the linguistic content, speech LLMs have access to the
+    <em>acoustics</em>: demographic cues such as age and gender that text alone does not carry. This access is a
+    duality — an <strong>opportunity to personalize</strong>, and a <strong>risk to be biased</strong>.
+    <strong>BASIS-Bench</strong> disentangles this tension for eight recent speech LLMs, and decomposes where
+    demographic-dependent behavior comes from: the acoustics, the backbone, or their interaction.
+  </div>
+</header>
+
+<!-- ============================================================ OVERVIEW -->
+<section id="overview">
+  <div class="wrap-narrow">
+    <h2>BASIS-Bench</h2>
+    <p class="muted"><b>B</b>ias <b>A</b>nd per<b>S</b>onalization <b>I</b>n <b>S</b>peech LLMs <b>Bench</b>mark</p>
+    <p>
+      Current evaluations work with bias and personalization <strong>independently</strong>, without considering
+      them together — the same demographic-dependent behavior may be rewarded as personalization or penalized as
+      stereotyping — and the effect of the backbone of speech LLMs is largely understudied. Following
+      <em>Kantharuban et&nbsp;al. (2025)</em>, we consider demographic personalization appropriate
+      <strong>only when explicitly requested</strong>, and evaluate along three axes:
+    </p>
+
+    <div class="cards3">
+      <div class="axis-card">
+        <span class="num">1</span>
+        <h3>Demographic Robustness</h3>
+        <p class="q">Can the model reliably process speech and perceive demographic cues?</p>
+        <p>A minimum requirement for a good speech LLM, split into two sub-axes: <b>content-based tasks</b> —
+           do speech LLMs perform equitably on tasks that do not require paralinguistics? — and
+           <b>demographic classification</b> — are they aware of the demographic from the speaker’s acoustics?
+           Data: SD-QA, Fair-Speech, LibriSQA, Spoken StereoSet+.</p>
+      </div>
+      <div class="axis-card">
+        <span class="num">2</span>
+        <h3>Stereotypical Bias</h3>
+        <p class="q">Do demographic cues shape behavior when irrelevant?</p>
+        <p>In a context–continuation setup, a biased speech LLM prefers continuations that attribute a
+           stereotype to the speaker based on perceived age or gender. Data: Spoken StereoSet+, our manually
+           re-annotated release. Metric: ICAT.</p>
+      </div>
+      <div class="axis-card">
+        <span class="num">3</span>
+        <h3>Personalization</h3>
+        <p class="q">Can the model use demographic cues when explicitly requested?</p>
+        <p>How to differentiate this from stereotypical bias? <b>Modulation is appropriate only when explicitly
+           requested.</b> Age: open-ended generation for child/adult profiles (ELIP-Pair, LLM-as-a-judge).
+           Gender: constrained gender recognition MCQA (BASIS-Health, BASIS-Product).</p>
+      </div>
+    </div>
+
+    <h3>Four evaluation modes</h3>
+    <p class="muted">
+      We cross <em>modality</em> (speech / text) with whether the demographic label is <em>stated outright</em>
+      (explicit) or must be <em>inferred</em> (implicit):
+    </p>
+    <div class="mode-chips">
+      <span class="mode-chip"><b>speech-implicit</b> · demographics only through the voice — the target setting</span>
+      <span class="mode-chip"><b>speech-explicit</b> · voice + demographic label in the prompt</span>
+      <span class="mode-chip"><b>text-implicit</b> · transcript only — the backbone’s default behavior</span>
+      <span class="mode-chip"><b>text-explicit</b> · transcript + demographic label</span>
+    </div>
+
+    <h3>Sources of disparities</h3>
+    <p class="muted">
+      Comparing these modes decomposes the contribution of each component of a speech LLM:
+    </p>
+    <div class="cards3">
+      <div class="axis-card">
+        <h3>Acoustic effect</h3>
+        <p>Disparities arising from the speech encoding process: how reliably linguistic content and
+           demographic cues are represented and perceived. Probed by the demographic robustness axis.</p>
+      </div>
+      <div class="axis-card">
+        <h3>Backbone effect</h3>
+        <p>Biases and personalization capabilities inherited from the foundation LLM, independently of the
+           speech modality. Probed by the text modes.</p>
+      </div>
+      <div class="axis-card">
+        <h3>Interaction effect</h3>
+        <p>How speech integration amplifies or dampens the behavior already present in the backbone. Probed by
+           comparing equivalent speech and text modes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= RESULTS -->
+<section id="results">
+  <div class="wrap">
+    <h2 style="text-align:center">Interactive results</h2>
+    <p class="muted" style="text-align:center; max-width:720px; margin:0 auto;">
+      Eight speech LLMs, one dot each, in every plot; up and to the right is better on every axis.
+    </p>
+
+    <div class="legend-row" id="legend-row" aria-label="models"></div>
+    <p class="legend-hint">Hover or click a model to highlight it in every plot · hover any dot for its exact numbers ·
+      every plotted value is also in the “View as table” toggles</p>
+
+    <h3 style="text-align:center; margin-top:2em;">Demographic Robustness <span class="fx-tag">Acoustic effect</span></h3>
+    <p class="muted" style="text-align:center; max-width:720px; margin:0 auto 8px;">
+      Before asking how models <em>use</em> demographic cues: can they reliably process speech and perceive them
+      at all? Accuracy on content-based tasks (ASR + SQA) against demographic classification accuracy.
+    </p>
+
+    <div class="control-row" role="group" aria-label="classification dimension" style="justify-content:center;">
+      <div class="control-group">
+        <span class="control-label">Classify</span>
+        <div class="seg" id="seg-robdim">
+          <button type="button" data-value="age" aria-pressed="true">Age</button>
+          <button type="button" data-value="gender" aria-pressed="false">Gender</button>
+        </div>
+      </div>
+      <button class="table-toggle" id="toggle-table-robustness" type="button">View as table</button>
+    </div>
+    <p class="mode-note" id="rob-note" style="text-align:center;"></p>
+
+    <div class="chart-grid solo">
+      <div class="chart-card">
+        <h4>Content-based robustness vs. demographic perception</h4>
+        <p class="sub">Same x for both dimensions — only the classification target changes</p>
+        <div id="chart-robustness" class="chart-host"></div>
+      </div>
+    </div>
+    <div class="tablewrap" id="table-robustness" hidden></div>
+
+    <h3 style="text-align:center; margin-top:3em;">Putting it all together: Stereotypical Bias vs Personalization</h3>
+    <p class="muted" style="text-align:center; max-width:720px; margin:0 auto 8px;">
+      The hollow dots are the <b>implicit anchors</b> — they stay on screen. Selecting <b>Explicit</b> adds the
+      filled dots, each tied to its anchor by a dashed link, so it is clear where every model starts and where
+      it ends up. Speech&nbsp;+&nbsp;Explicit reproduces the paper’s Figure&nbsp;2; the blue band is the Pareto
+      frontier over the speech-implicit points. Axis ranges are fitted per panel, so compare positions within a
+      panel, not across the two.
+    </p>
+
+    <div class="control-row" role="group" aria-label="evaluation mode">
+      <div class="control-group">
+        <span class="control-label">Modality</span>
+        <div class="seg" id="seg-modality">
+          <button type="button" data-value="speech" aria-pressed="true">🔊 Speech</button>
+          <button type="button" data-value="text" aria-pressed="false">📝 Text</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <span class="control-label">Demographics</span>
+        <div class="seg" id="seg-marker">
+          <button type="button" data-value="implicit" aria-pressed="true">Implicit</button>
+          <button type="button" data-value="explicit" aria-pressed="false">Explicit</button>
+        </div>
+      </div>
+      <button class="table-toggle" id="toggle-table-tradeoff" type="button">View as table</button>
+    </div>
+    <p class="mode-note" id="mode-note" aria-live="polite"></p>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h4>Gender</h4>
+        <p class="sub">ICAT (1 − stereotypical bias) vs. personalization accuracy · Spoken StereoSet+ / BASIS-Health + BASIS-Product</p>
+        <div id="chart-gender" class="chart-host"></div>
+        <ul class="chart-notes">
+          <li>Models that show higher unbiasedness are also the ones that are least personalized — and the more
+              personalized models are the highly biased ones.</li>
+          <li>The explicit signal shifts all the models beyond the Pareto front, but in an undesirable manner.</li>
+        </ul>
+      </div>
+      <div class="chart-card">
+        <h4>Age</h4>
+        <p class="sub">ICAT (1 − stereotypical bias) vs. personalization accuracy · Spoken StereoSet+ / ELIP-Pair</p>
+        <div id="chart-age" class="chart-host"></div>
+        <ul class="chart-notes">
+          <li>For age, the trend is looser: most of the models saturate in the low-bias / low-personalization
+              region.</li>
+          <li>On giving the explicit signal, the shift is very drastic — all models gain points on the
+              personalization axis whereas losing them on bias.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tablewrap" id="table-tradeoff" hidden></div>
+  </div>
+</section>
+
+<!-- =========================================================== TAKEAWAYS -->
+<section id="findings">
+  <div class="wrap-narrow">
+    <h2>Takeaway messages</h2>
+    <div class="finding-cards">
+      <div class="finding wide">
+        <h3>Demographic Robustness</h3>
+        <ul>
+          <li><b>Acoustic effect:</b> all models perform well across nearly all demographics on content-based
+              tasks. Gender classification remains more reliable than age — classifying elderly speakers is the
+              toughest.</li>
+        </ul>
+      </div>
+      <div class="finding">
+        <h3>Stereotypical Bias</h3>
+        <ul>
+          <li><b>Backbone effect:</b> the prior is slightly stereotypical towards female and young speakers, and
+              explicit demographic information increases stereotypical behavior.</li>
+          <li><b>Interaction effect:</b> implicit results are consistent across speech and text — most of the
+              bias is inherited. In the explicit case, speech integration dampens the backbone’s bias.</li>
+          <li><b>Perception:</b> perfect perception increases stereotypical behavior, and the increase is more
+              pronounced for age.</li>
+        </ul>
+      </div>
+      <div class="finding">
+        <h3>Personalization</h3>
+        <ul>
+          <li><b>Backbone effect:</b> female options are always selected more than male (strongest in
+              BASIS-Health), while age preferences remain near random. With explicit information, gender and
+              child personalization reach near-ceiling scores; adult remains tough.</li>
+          <li><b>Interaction effect:</b> the speech-implicit trend closely follows text-implicit, showing
+              inheritance. For age, there is a systematic shift towards child-friendly responses — no model
+              adapts to both age groups.</li>
+          <li><b>Perception:</b> perfect perception improves gender and child personalization; adult remains
+              mixed.</li>
+        </ul>
+      </div>
+      <div class="finding wide">
+        <h3>Putting it all together</h3>
+        <ul>
+          <li>Models do <b>not reliably distinguish when</b> demographic information should shape their
+              behavior.</li>
+          <li>The relative unbiasedness of speech LLMs might be due to <b>demographic deafness</b> rather than
+              genuine fairness.</li>
+          <li>Current speech LLMs largely <b>fail to translate their perception knowledge to
+              personalization</b>.</li>
+          <li>Improving perception alone is not the key — we need to train models that <b>appropriately use</b>
+              demographic information.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pull-quote">“Current speech LLMs often <span class="accent">fail to listen</span> when demographics
+      matter, yet <span class="accent">fail to turn a deaf ear</span> when they do not.”</p>
+  </div>
+</section>
+
+<!-- ================================================================ DATA -->
+<section id="data">
+  <div class="wrap-narrow">
+    <h2>Datasets &amp; examples</h2>
+    <p class="muted">
+      BASIS-Bench releases three data resources. Every spoken question below is recorded in multiple voices, so
+      the same content appears with opposite targets depending on the speaker — pick a voice and listen.
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-tile">
+        <div class="label">Spoken StereoSet+</div>
+        <div class="value">1,680</div>
+        <div class="sub">test instances · 67 age + 242 gender curated contexts</div>
+      </div>
+      <div class="stat-tile">
+        <div class="label">BASIS-Health</div>
+        <div class="value">1,268</div>
+        <div class="sub">spoken questions · 9 synthetic voices</div>
+      </div>
+      <div class="stat-tile">
+        <div class="label">BASIS-Product</div>
+        <div class="value">803</div>
+        <div class="sub">spoken questions · fictional brands</div>
+      </div>
+      <div class="stat-tile">
+        <div class="label">ELIP-Pair</div>
+        <div class="value">521</div>
+        <div class="sub">questions · 3,697 audio clips · child/adult references</div>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="datasets">
+      <button class="tab" role="tab" id="tab-sss" aria-controls="panel-sss" aria-selected="true" type="button">Spoken StereoSet+</button>
+      <button class="tab" role="tab" id="tab-health" aria-controls="panel-health" aria-selected="false" type="button">BASIS-Health</button>
+      <button class="tab" role="tab" id="tab-product" aria-controls="panel-product" aria-selected="false" type="button">BASIS-Product</button>
+      <button class="tab" role="tab" id="tab-elip" aria-controls="panel-elip" aria-selected="false" type="button">ELIP-Pair</button>
+    </div>
+
+    <div class="tabpanel" id="panel-sss" role="tabpanel" aria-labelledby="tab-sss">
+      <p class="desc">
+        <b>Stereotypical bias.</b> We manually re-annotated Spoken StereoSet against an explicit definition of
+        stereotypical bias, filtering the pitfalls catalogued in the <em>Inventory of Pitfalls in Fairness
+        Benchmark Datasets</em> — stereotype conflation, invalid continuations, invalid perturbations — plus
+        demographic-specific criteria (demographic leakage and invalid gender for age; inappropriate content and
+        social perception for gender). The model hears a first-person context and picks the most plausible
+        continuation; ICAT measures the skew between stereotypical and anti-stereotypical selections
+        (100&nbsp;=&nbsp;a perfectly balanced 50/50 split).
+      </p>
+      <h3>Gender split — female vs. male speakers</h3>
+      <div id="ex-sss-gender"></div>
+      <h3>Age split — male adult vs. male elderly speakers</h3>
+      <div id="ex-sss-age"></div>
+    </div>
+
+    <div class="tabpanel" id="panel-health" role="tabpanel" aria-labelledby="tab-health" hidden>
+      <p class="desc">
+        <b>Gender personalization</b>, framed as <b>constrained gender recognition</b> to avoid stereotypical
+        associations: the question is gender-neutral, the options carry explicit gender markers, and the model —
+        explicitly instructed to personalize — must pick the option matching the voice. Health questions are
+        grounded in biological differences between male and female. A controlled diagnostic task, not a clinical
+        benchmark (see the paper’s ethics statement).
+      </p>
+      <div id="ex-health"></div>
+    </div>
+
+    <div class="tabpanel" id="panel-product" role="tabpanel" aria-labelledby="tab-product" hidden>
+      <p class="desc">
+        <b>Gender personalization</b> on product recommendations: two otherwise identical options that differ
+        only by an explicit gender marker (<em>Men’s</em> vs. <em>Women’s</em>). Brands are entirely fictional
+        to prevent reliance on memorized brand associations.
+      </p>
+      <div id="ex-product"></div>
+    </div>
+
+    <div class="tabpanel" id="panel-elip" role="tabpanel" aria-labelledby="tab-elip" hidden>
+      <p class="desc">
+        <b>Age personalization</b> as open-ended generation, built on ELIP (Thonet et&nbsp;al., 2025): each
+        question pairs a child reference answer — friendly, witty, funny and humorous tone, assuming a
+        non-expert audience — with an adult one — formal style, assuming an expert audience. The model answers
+        the spoken question and an LLM-as-a-judge classifies the response into the profile it is fit for.
+      </p>
+      <div id="ex-elip"></div>
+    </div>
+
+    <div class="note-box">
+      <b>A note on scope.</b> These datasets are <b>evaluation tools, not recommendations</b> for inferring or
+      using demographic information in deployed systems. Voices are synthetic; gender labels are a controlled
+      binary abstraction; BASIS-Health probes a sex-related distinction under explicit instruction and is not a
+      benchmark for clinical reasoning. Inferred attributes should never be treated as ground truth.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CITATION -->
+<section id="citation">
+  <div class="wrap-narrow">
+    <h2>Citation</h2>
+    <p class="muted">If you use BASIS-Bench, please cite the paper.
+      <!-- TODO: fill in the arXiv id and url (currently TBD) once the paper is online --></p>
+    <div class="bibtex-box">
+      <button class="copy-btn" id="copy-bib" type="button">Copy</button>
+      <pre id="bibtex-pre">@misc{basisbench2026,
+  title         = {Personalization Without Stereotyping: Do Speech {LLMs} Know When to Turn a Deaf Ear?},
+  author        = {Ambilduke, Kshitij and Brun, Caroline and Thonet, Thibaut and Nikoulina, Vassilina and Boito, Marcely Zanon},
+  year          = {2026},
+  eprint        = {TBD},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {TBD}
+}</pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-narrow">
+    <p>All audio on this page is synthetic speech from the BASIS-Bench data release.
+       Results correspond to the paper’s Figure&nbsp;2 and Tables&nbsp;4–5.</p>
+    <!-- Website template: hand-rolled static page (no build step). Feel free to adapt. -->
+  </div>
+</footer>
+
+<noscript>
+  <div class="wrap-narrow" style="padding:20px 16px;">
+    <p><b>JavaScript is disabled:</b> the interactive charts and audio examples will not render.
+    All plotted numbers are in the paper (Table&nbsp;4 and Table&nbsp;5).</p>
+  </div>
+</noscript>
+
+<script src="static/js/data.js"></script>
+<script src="static/js/plots.js"></script>
+<script src="static/js/main.js"></script>
+</body>
+</html>
