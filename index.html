@@ -78,21 +78,9 @@
            alt="BASIS-Bench overview. 1 — Demographic Robustness: can the model reliably process speech and perceive demographic cues? Accent/age/gender ASR and SQA on Fair-Speech, LibriSQA, SD-QA; age/gender classification on the datasets of axes 2 and 3. 2 — Stereotypical Bias: can the model ignore demographic cues when they are irrelevant for the task? Age/gender MCQA association test on Spoken StereoSet+. 3 — Personalization: can the model use demographic cues when explicitly requested? Age: open-ended SQA on ELIP-Pair; gender: MCQA SQA on BASIS-Health/Product.">
     </figure>
 
-    <h3>Four evaluation modes</h3>
-    <p class="muted">
-      We cross <em>modality</em> (speech / text) with whether the demographic label is <em>stated outright</em>
-      (explicit) or must be <em>inferred</em> (implicit):
-    </p>
-    <div class="mode-chips">
-      <span class="mode-chip si"><b>speech-implicit</b> · demographics only through the speech (target setting)</span>
-      <span class="mode-chip se"><b>speech-explicit</b> · speech + textual demographic label in the prompt</span>
-      <span class="mode-chip ti"><b>text-implicit</b> · transcript only (backbone’s default behavior)</span>
-      <span class="mode-chip te"><b>text-explicit</b> · transcript + textual demographic label in the prompt</span>
-    </div>
-
     <h3>Sources of disparities</h3>
     <p class="muted">
-      Comparing these modes decomposes the contribution of each component of a speech LLM:
+      Comparing the evaluation modes below decomposes the contribution of each component of a speech LLM:
     </p>
     <div class="cards3">
       <div class="axis-card">
@@ -110,6 +98,18 @@
         <p>How speech integration amplifies or dampens the behavior already present in the backbone. Probed by
            comparing equivalent speech and text modes.</p>
       </div>
+    </div>
+
+    <h3>Four evaluation modes</h3>
+    <p class="muted">
+      We cross <em>modality</em> (speech / text) with whether the demographic label is <em>stated outright</em>
+      (explicit) or must be <em>inferred</em> (implicit):
+    </p>
+    <div class="mode-chips">
+      <span class="mode-chip si"><b>speech-implicit</b> · demographics only through the speech (target setting)</span>
+      <span class="mode-chip se"><b>speech-explicit</b> · speech + textual demographic label in the prompt</span>
+      <span class="mode-chip ti"><b>text-implicit</b> · transcript only (backbone’s default behavior)</span>
+      <span class="mode-chip te"><b>text-explicit</b> · transcript + textual demographic label in the prompt</span>
     </div>
   </div>
 </section>
