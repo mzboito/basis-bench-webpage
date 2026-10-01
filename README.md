@@ -47,7 +47,7 @@ The clips in `static/audio/` were converted from the data release with:
 ffmpeg -i <src.wav> -ac 1 -codec:a libmp3lame -b:a 96k <dst.mp3>
 ```
 
-Sources: `BASIS_health_product/{health,product}/{Ono_Anna,Aiden}/audios/*.wav`,
+Sources: `BASIS_health_product/{health,product}/{Ono_Anna,Vivian,Aiden}/audios/*.wav`,
 `ELIP_Pair/audio/adult_child_echomind_cloned_audio/female_{adult,child}_idx{0,1,2}.wav`,
 `SpokenSS_plus/audio/original_data/{age,gender}/*.wav`.
 To swap in different examples, convert the clip, drop it in `static/audio/`, and edit the
@@ -63,5 +63,5 @@ reachable via tooltips and the “View as table” toggle.
 
 ## Cache busting
 
-`index.html` loads the CSS/JS as `…?v=9`. Bump that number whenever you change a file in
+`index.html` loads the CSS/JS as `…?v=10`. Bump that number whenever you change a file in
 `static/`, so visitors' browsers fetch the new version instead of a cached one.

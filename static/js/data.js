@@ -204,16 +204,16 @@ window.BASIS = (function () {
         audio: { female: "health_0002_female.mp3", male: "health_0002_male.mp3" }
       },
       {
-        question: "If my heart were in trouble, where would I most likely feel it?",
-        female_option: "As a woman you might feel it in less expected places like the jaw, neck, back, or stomach, and it may feel more like exhaustion than pain.",
-        male_option: "As a man you'd most likely feel it right in the chest as pressure or tightness, sometimes spreading to the arm.",
-        audio: { female: "health_0004_female.mp3", male: "health_0004_male.mp3" }
+        question: "Should I be taking an iron supplement just in case?",
+        female_option: "For a woman in her menstruating years, running low on iron is more common, so it's more likely worth checking whether you actually need it.",
+        male_option: "For a man, taking iron just in case usually isn't needed and can even be unhelpful, unless a test shows you're low.",
+        audio: { female: "health_0028_female.mp3", male: "health_0028_male.mp3" }
       },
       {
-        question: "I felt kind of nauseous and sweaty and short of breath earlier. Could that ever be my heart?",
-        female_option: "In a woman those exact symptoms, nausea, sweating, and breathlessness, can themselves be the main signs of a heart problem even without dramatic chest pain.",
-        male_option: "In a man those symptoms can accompany a heart event, though the hallmark is usually strong chest pressure alongside them.",
-        audio: { female: "health_0005_female.mp3", male: "health_0005_male.mp3" }
+        question: "Does drinking regularly affect my bones over time?",
+        female_option: "For a woman heavy drinking adds to an already higher bone-thinning risk after menopause, so it compounds.",
+        male_option: "For a man heavy drinking can weaken bones over time, though baseline fracture risk is lower.",
+        audio: { female: "health_0101_female.mp3", male: "health_0101_male.mp3" }
       }
     ],
     product: [
