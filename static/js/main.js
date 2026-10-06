@@ -357,8 +357,8 @@
   /* BASIS-Health / BASIS-Product cards: the gold answer follows the voice */
   function buildMCQACard(item, container) {
     var voices = [
-      { key: "female", label: "♀ Female voice" },
-      { key: "male", label: "♂ Male voice" }
+      { key: "female", label: "👩 Female voice" },
+      { key: "male", label: "👨 Male voice" }
     ];
     var rowF, rowM;
     function apply(key) {
@@ -382,7 +382,7 @@
     container.appendChild(shell.card);
   }
 
-  /* ELIP-Pair cards: the target register follows the voice */
+  /* ELIP-Pair cards: the target profile follows the voice */
   function buildElipCard(item, container) {
     var voices = [
       { key: "adult", label: "🧑 Adult voice" },
@@ -392,19 +392,19 @@
     function apply(key) {
       rowA.classList.toggle("gold", key === "adult");
       rowC.classList.toggle("gold", key === "child");
-      rowA.querySelector(".opt-label").textContent = key === "adult" ? "target ✓ · adult register" : "adult register";
-      rowC.querySelector(".opt-label").textContent = key === "child" ? "target ✓ · child register" : "child register";
+      rowA.querySelector(".opt-label").textContent = key === "adult" ? "target ✓ · adult profile" : "adult profile";
+      rowC.querySelector(".opt-label").textContent = key === "child" ? "target ✓ · child profile" : "child profile";
       flash([rowA, rowC]);
       return item.audio[key];
     }
     var shell = exCardShell(item.question, voices, apply);
-    rowA = optRow("target ✓ · adult register", item.adult_response, "gold");
-    rowC = optRow("child register", item.child_response);
+    rowA = optRow("target ✓ · adult profile", item.adult_response, "gold");
+    rowC = optRow("child profile", item.child_response);
     shell.card.appendChild(rowA);
     shell.card.appendChild(rowC);
     var foot = document.createElement("p");
     foot.className = "ex-foot";
-    foot.textContent = "Open-ended generation: the model answers the spoken question, and an LLM judge decides whether the response matches the child or the adult register. The target follows the voice.";
+    foot.textContent = "Open-ended generation: the model answers the spoken question, and an LLM judge decides whether the response matches the child or the adult profile. The target follows the voice.";
     shell.card.appendChild(foot);
     shell.audio.src = AUDIO_BASE + item.audio.adult;
     container.appendChild(shell.card);
@@ -416,8 +416,8 @@
     var sssG = document.getElementById("ex-sss-gender");
     EX.sss_gender.forEach(function (it) {
       buildSSSCard(it, [
-        { key: "female", label: "♀ Female voice" },
-        { key: "male", label: "♂ Male voice" }
+        { key: "female", label: "👩 Female voice" },
+        { key: "male", label: "👨 Male voice" }
       ], sssG);
     });
     var sssA = document.getElementById("ex-sss-age");
