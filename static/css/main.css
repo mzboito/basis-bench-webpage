@@ -169,15 +169,15 @@ code {
   font-weight: 500; font-style: italic; color: var(--ink-2); margin: 0 0 22px;
 }
 .authors { color: var(--ink-2); font-size: 1rem; margin: 0 0 4px; }
-.affil { color: var(--ink-3); font-size: .9rem; margin: 0 0 18px; }
-.org-logo { margin: 0 0 26px; }
-.org-logo img { height: 26px; width: auto; max-width: 80vw; }
+.affil { color: var(--ink-3); font-size: .9rem; margin: 0 0 26px; }
+.org-logo { display: inline-flex; align-items: center; padding-right: 14px; border-right: 1px solid var(--grid); }
+.org-logo img { height: 15px; width: auto; display: block; }
 .org-logo .logo-night { display: none; }
 :root[data-theme="dark"] .org-logo .logo-day { display: none; }
-:root[data-theme="dark"] .org-logo .logo-night { display: inline; }
+:root[data-theme="dark"] .org-logo .logo-night { display: block; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .org-logo .logo-day { display: none; }
-  :root:not([data-theme="light"]) .org-logo .logo-night { display: inline; }
+  :root:not([data-theme="light"]) .org-logo .logo-night { display: block; }
 }
 .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .btn {
@@ -509,6 +509,7 @@ footer {
 
 /* ----------------------------------------------------------- responsive --- */
 @media (max-width: 880px) {
+  .org-logo img { height: 12px; }
   .chart-grid { grid-template-columns: 1fr; }
   .cards3 { grid-template-columns: 1fr; }
   .finding-cards { grid-template-columns: 1fr; }
