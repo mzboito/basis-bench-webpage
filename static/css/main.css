@@ -169,7 +169,16 @@ code {
   font-weight: 500; font-style: italic; color: var(--ink-2); margin: 0 0 22px;
 }
 .authors { color: var(--ink-2); font-size: 1rem; margin: 0 0 4px; }
-.affil { color: var(--ink-3); font-size: .9rem; margin: 0 0 26px; }
+.affil { color: var(--ink-3); font-size: .9rem; margin: 0 0 18px; }
+.org-logo { margin: 0 0 26px; }
+.org-logo img { height: 26px; width: auto; max-width: 80vw; }
+.org-logo .logo-night { display: none; }
+:root[data-theme="dark"] .org-logo .logo-day { display: none; }
+:root[data-theme="dark"] .org-logo .logo-night { display: inline; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .org-logo .logo-day { display: none; }
+  :root:not([data-theme="light"]) .org-logo .logo-night { display: inline; }
+}
 .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
