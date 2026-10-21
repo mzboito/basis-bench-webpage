@@ -9,7 +9,7 @@
   <meta property="og:title" content="BASIS-Bench — Personalization Without Stereotyping">
   <meta property="og:description" content="Do speech LLMs know when to turn a deaf ear? Disentangling stereotypical bias from personalization.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%AC%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="static/css/main.css?v=15">
+  <link rel="stylesheet" href="static/css/main.css?v=16">
 </head>
 <body>
 
@@ -71,7 +71,7 @@
     <h2>BASIS-Bench</h2>
     <p class="muted"><b>B</b>ias <b>A</b>nd per<b>S</b>onalization <b>I</b>n <b>S</b>peech LLMs <b>Bench</b>mark</p>
     <figure class="overview-fig">
-      <img src="static/img/basis_bench_overview.svg?v=15" width="736" height="369"
+      <img src="static/img/basis_bench_overview.svg?v=16" width="736" height="369"
            alt="BASIS-Bench overview. 1 — Demographic Robustness: can the model reliably process speech and perceive demographic cues? Accent/age/gender ASR and SQA on Fair-Speech, LibriSQA, SD-QA; age/gender classification on the datasets of axes 2 and 3. 2 — Stereotypical Bias: can the model ignore demographic cues when they are irrelevant for the task? Age/gender MCQA association test on Spoken StereoSet+. 3 — Personalization: can the model use demographic cues when explicitly requested? Age: open-ended SQA on ELIP-Pair; gender: MCQA SQA on BASIS-Health/Product.">
     </figure>
 
@@ -257,8 +257,8 @@
   <div class="wrap-narrow">
     <h2>Datasets &amp; examples</h2>
     <p class="muted">
-      BASIS-Bench releases three data resources, each in its own GitHub repository (linked inside every tab
-      below). Every spoken question is recorded in multiple voices, so the same content appears with opposite
+      BASIS-Bench releases three data resources, each in its own GitHub repository (use the Download button
+      in each tab below). Every spoken question is recorded in multiple voices, so the same content appears with opposite
       targets depending on the speaker — pick a voice and listen.
     </p>
 
@@ -293,6 +293,7 @@
     </div>
 
     <div class="tabpanel" id="panel-sss" role="tabpanel" aria-labelledby="tab-sss">
+      <a class="dl-btn" href="https://github.com/naver/SpokenStereosetPlus" title="Get the data on GitHub (naver/SpokenStereosetPlus)"><svg class="dl-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a1 1 0 0 1 1 1v6.09l2.04-2.04a1 1 0 1 1 1.42 1.42l-3.75 3.75a1 1 0 0 1-1.42 0L3.54 7.97a1 1 0 1 1 1.42-1.42L7 8.59V2.5a1 1 0 0 1 1-1zM2.5 12.5a1 1 0 0 1 1 1v.5h9v-.5a1 1 0 1 1 2 0v1.5a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1z"/></svg><span>Download</span></a>
       <details class="abstract-box desc-box">
         <summary>Description</summary>
         <p class="desc">
@@ -305,7 +306,6 @@
           (100&nbsp;=&nbsp;a perfectly balanced 50/50 split).
         </p>
       </details>
-      <p class="repo-link"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><a href="https://github.com/naver/SpokenStereosetPlus">naver/SpokenStereosetPlus</a></p>
       <h3>Gender split — female vs. male speakers</h3>
       <div id="ex-sss-gender"></div>
       <h3>Age split — male adult vs. male elderly speakers</h3>
@@ -313,6 +313,7 @@
     </div>
 
     <div class="tabpanel" id="panel-health" role="tabpanel" aria-labelledby="tab-health" hidden>
+      <a class="dl-btn" href="https://github.com/naver/BASIS-data" title="Get the data on GitHub (naver/BASIS-data)"><svg class="dl-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a1 1 0 0 1 1 1v6.09l2.04-2.04a1 1 0 1 1 1.42 1.42l-3.75 3.75a1 1 0 0 1-1.42 0L3.54 7.97a1 1 0 1 1 1.42-1.42L7 8.59V2.5a1 1 0 0 1 1-1zM2.5 12.5a1 1 0 0 1 1 1v.5h9v-.5a1 1 0 1 1 2 0v1.5a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1z"/></svg><span>Download</span></a>
       <details class="abstract-box desc-box">
         <summary>Description</summary>
         <p class="desc">
@@ -323,11 +324,11 @@
           benchmark (see the paper’s ethics statement).
         </p>
       </details>
-      <p class="repo-link"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><a href="https://github.com/naver/BASIS-data">naver/BASIS-data</a></p>
       <div id="ex-health"></div>
     </div>
 
     <div class="tabpanel" id="panel-product" role="tabpanel" aria-labelledby="tab-product" hidden>
+      <a class="dl-btn" href="https://github.com/naver/BASIS-data" title="Get the data on GitHub (naver/BASIS-data)"><svg class="dl-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a1 1 0 0 1 1 1v6.09l2.04-2.04a1 1 0 1 1 1.42 1.42l-3.75 3.75a1 1 0 0 1-1.42 0L3.54 7.97a1 1 0 1 1 1.42-1.42L7 8.59V2.5a1 1 0 0 1 1-1zM2.5 12.5a1 1 0 0 1 1 1v.5h9v-.5a1 1 0 1 1 2 0v1.5a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1z"/></svg><span>Download</span></a>
       <details class="abstract-box desc-box">
         <summary>Description</summary>
         <p class="desc">
@@ -336,11 +337,11 @@
           to prevent reliance on memorized brand associations.
         </p>
       </details>
-      <p class="repo-link"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><a href="https://github.com/naver/BASIS-data">naver/BASIS-data</a></p>
       <div id="ex-product"></div>
     </div>
 
     <div class="tabpanel" id="panel-elip" role="tabpanel" aria-labelledby="tab-elip" hidden>
+      <a class="dl-btn" href="https://github.com/naver/ELIP-Pair" title="Get the data on GitHub (naver/ELIP-Pair)"><svg class="dl-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5a1 1 0 0 1 1 1v6.09l2.04-2.04a1 1 0 1 1 1.42 1.42l-3.75 3.75a1 1 0 0 1-1.42 0L3.54 7.97a1 1 0 1 1 1.42-1.42L7 8.59V2.5a1 1 0 0 1 1-1zM2.5 12.5a1 1 0 0 1 1 1v.5h9v-.5a1 1 0 1 1 2 0v1.5a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1z"/></svg><span>Download</span></a>
       <details class="abstract-box desc-box">
         <summary>Description</summary>
         <p class="desc">
@@ -350,7 +351,6 @@
           the spoken question and an LLM-as-a-judge classifies the response into the profile it is fit for.
         </p>
       </details>
-      <p class="repo-link"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><a href="https://github.com/naver/ELIP-Pair">naver/ELIP-Pair</a></p>
       <div id="ex-elip"></div>
     </div>
 
@@ -412,8 +412,8 @@
   </div>
 </noscript>
 
-<script src="static/js/data.js?v=15"></script>
-<script src="static/js/plots.js?v=15"></script>
-<script src="static/js/main.js?v=15"></script>
+<script src="static/js/data.js?v=16"></script>
+<script src="static/js/plots.js?v=16"></script>
+<script src="static/js/main.js?v=16"></script>
 </body>
 </html>

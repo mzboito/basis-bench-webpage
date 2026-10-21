@@ -25,8 +25,8 @@ Everything is relative-path based, so it works from any subpath.
 ## Links
 
 - Code: <https://github.com/naver/basis-bench> (hero button)
-- Data: three repositories, linked from the hero **Data** button (anchors to the Datasets section) and inside
-  each dataset tab — `naver/SpokenStereosetPlus`, `naver/BASIS-data` (BASIS-Health + BASIS-Product),
+- Data: three repositories, linked from the hero **Data** button (anchors to the Datasets section) and by the
+  **Download** button at the top of each dataset tab — `naver/SpokenStereosetPlus`, `naver/BASIS-data` (BASIS-Health + BASIS-Product),
   `naver/ELIP-Pair`.
 
 ## Updating the numbers
@@ -62,5 +62,5 @@ reachable via tooltips and the “View as table” toggle.
 
 ## Cache busting
 
-`index.html` loads the CSS/JS as `…?v=15`. Bump that number whenever you change a file in
+`index.html` loads the CSS/JS as `…?v=16`. Bump that number whenever you change a file in
 `static/`, so visitors' browsers fetch the new version instead of a cached one.

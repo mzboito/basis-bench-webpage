@@ -450,9 +450,20 @@ svg.has-dim .connector.hl { stroke-opacity: .6; }
 .desc-box { margin: 0 0 16px; box-shadow: none; }
 .desc-box summary { padding: 9px 16px; font-size: .92rem; }
 .desc-box .desc { font-size: .92rem; color: var(--ink-2); margin: 0; padding: 0 16px 14px; }
-.repo-link { display: flex; align-items: center; gap: 7px; margin: -6px 0 18px; font-size: .9rem; color: var(--ink-2); }
-.repo-link svg { width: 15px; height: 15px; fill: currentColor; flex: none; }
-.repo-link a { font-weight: 600; }
+.dl-btn {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px;
+  padding: 8px 18px 8px 14px; border-radius: 999px;
+  background: var(--accent); color: #fff; font-weight: 650; font-size: .92rem; letter-spacing: .01em;
+  box-shadow: 0 2px 0 var(--accent-ink), 0 4px 12px color-mix(in srgb, var(--accent) 28%, transparent);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.dl-btn:hover { text-decoration: none; transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--accent-ink), 0 8px 18px color-mix(in srgb, var(--accent) 34%, transparent); }
+.dl-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--accent-ink); }
+.dl-btn .dl-icon { width: 16px; height: 16px; fill: currentColor; }
+.dl-btn:hover .dl-icon { animation: dl-bounce .6s ease infinite; }
+@keyframes dl-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(2px); } }
+@media (prefers-reduced-motion: reduce) { .dl-btn, .dl-btn:hover .dl-icon { animation: none; transition: none; } }
 
 .ex-card {
   background: var(--surface-1); border: 1px solid var(--grid); border-radius: 12px;
